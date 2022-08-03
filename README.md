@@ -10,9 +10,30 @@ To install the package:
 npm install --save node-meta-parser
 ```
 
+## Methods
+
+### `parseMetadata`
+
+Returns in an object format (`{"propertyName": "contentValue"}`) the `<meta>` tags from an HTML page
+
+```typescript
+parseMetadata(rawHtml: string, properties: string[])
+```
+
+- **rawHtml**: is the *string* representing the HTML for the requested webpage.
+- **properties**: is an *array of strings* that are the property (or name) of a `<meta>` tag
+
+```html
+<!-- propertyName: "og:title" contentValue: "Open Graph protocol" -->
+<meta property="og:title" content="Open Graph protocol">
+
+<!-- propertyName: "description" contentValue: "The Open Graph protocol enables any web page to become a rich object in a social graph." -->
+<meta name="description" content="The Open Graph protocol enables any web page to become a rich object in a social graph.">
+```
+
 ## Example
 
-To the the meta tags values from a website you need to get a webpage raw HTML first, you can use an HTTP client of your liking, the example uses [axios](https://www.npmjs.com/package/axios).
+To get the `<meta>` tags values from a website you need to get a webpage's raw HTML first, you can use an HTTP client of your liking, the example uses [axios](https://www.npmjs.com/package/axios).
 
 ```typescript
 import axios from "axios"
@@ -36,6 +57,12 @@ in this case metadatas is like this:
   "og:description": "The Open Graph protocol enables any web page to become a rich object in a social graph."
 }
 ```
+
+## Dependecies
+
+- [node-html-parser](https://www.npmjs.com/package/node-html-parser) - Fast HTML Parser.
+
+## Notes for myself
 
 ### To use the latest uploaded build
 
@@ -64,6 +91,12 @@ Execute the script, it will transpile the branch `main` and push the folder `/di
 npm run update
 ```
 
-### Dependecies
+### Upload a new version to NPM
 
-- [node-html-parser](https://www.npmjs.com/package/node-html-parser) - Fast HTML Parser.
+To upload a new version of the package:
+
+1. `git checkout build`.
+2. Change version in `package.json`.
+3. `npm run install` to update `package-lock.json` version.
+4. `npm run update` to build and push latest version to GitHub.
+5. `npm publish` to publish a new version to NPM
