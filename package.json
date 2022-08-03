@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Get Open Graph and other metadata from a webpage.",
   "scripts": {
-    "tsc": "tsc",
+    "transpile": "tsc",
+    "lint": "eslint 'src/**/*'",
+    "update": "./scripts/update.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -27,7 +29,8 @@
   "author": "andreazllin",
   "license": "MIT",
   "devDependencies": {
-    "axios": "^0.27.2",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
     "eslint": "^8.21.0",
     "typescript": "^4.7.4"
   },
