@@ -1,0 +1,42 @@
+{
+  "name": "node-meta-parser",
+  "version": "0.0.1",
+  "description": "Get Open Graph and other metadata from a webpage.",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "meta",
+    "head",
+    "html",
+    "parser",
+    "open",
+    "graph",
+    "ogp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreazllin/node-meta-parser.git"
+  },
+  "homepage": "https://github.com/andreazllin/node-meta-parser",
+  "bugs": {
+    "url": "https://github.com/andreazllin/node-meta-parser/issues"
+  },
+  "author": "andreazllin",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "eslint": "^8.21.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "node-html-parser": "^5.3.3"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ]
+}
