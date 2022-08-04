@@ -37,6 +37,16 @@ parseMetadata(rawHtml: string, properties: string[])
 <meta name="description" content="The Open Graph protocol enables any web page to become a rich object in a social graph.">
 ```
 
+### `getFavicon`
+
+Returns the URL of the favicon
+
+```typescript
+getFavicon(rawHtml: string)
+```
+
+- **rawHtml**: is the *string* representing the HTML for the requested webpage.
+
 ## Example
 
 To get the `<meta>` tags values from a website you need to get a webpage's raw HTML first, you can use an HTTP client of your liking, the example uses [axios](https://www.npmjs.com/package/axios).

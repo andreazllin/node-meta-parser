@@ -27,3 +27,13 @@ export const parseMetadata = (html: string, properties: string[]): Metadata => {
 
   return metadatas
 }
+
+export const getFavicon = (html: string): string | undefined => {
+  const $ = parse(html)
+
+  const links = $.querySelectorAll("link")
+
+  const icon = links.find((link) => link.getAttribute("rel")?.includes("icon"))
+
+  return icon?.getAttribute("href")
+}
