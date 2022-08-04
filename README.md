@@ -14,7 +14,13 @@ npm install --save node-meta-parser
 
 ### `parseMetadata`
 
-Returns in an object format (`{"propertyName": "contentValue"}`) the `<meta>` tags from an HTML page
+Returns the `<meta>` tags from an HTML page in the following object format
+
+```json
+{
+  "propertyName": "contentValue"
+}
+```
 
 ```typescript
 parseMetadata(rawHtml: string, properties: string[])
@@ -41,12 +47,12 @@ import nmp from "node-meta-parser"
 
 void(async(): Promise<void> => {
   const { data: rawHtml } = await axios.get("https://ogp.me/")
-  const metadatas = nmp.parseMetadata(rawHtml, ["og:title", "og:type", "og:url", "og:image", "og:description"])
-  console.log(metadatas)
+  const metadata = nmp.parseMetadata(rawHtml, ["og:title", "og:type", "og:url", "og:image", "og:description"])
+  console.log(metadata)
 })()
 ```
 
-in this case metadatas is like this:
+in this case `metadata` is like this:
 
 ```json
 {
@@ -64,9 +70,9 @@ in this case metadatas is like this:
 
 ## Notes for myself
 
-### To use the latest uploaded build
+### To use the latest build uploaded to GitHub
 
-Add the package to your dependencies:
+To add the package to the dependencies:
 
 ```json
 {
@@ -95,8 +101,9 @@ npm run update
 
 To upload a new version of the package:
 
-1. `git checkout build`.
-2. Change version in `package.json`.
-3. `npm run install` to update `package-lock.json` version.
-4. `npm run update` to build and push latest version to GitHub.
-5. `npm publish` to publish a new version to NPM
+1. Change version in `package.json`.
+2. `npm run install` to update `package-lock.json` version.
+3. Commit and push changes to `main` branch.
+4. Checkout to `build` branch.
+5. `npm run update` to build and push latest version to GitHub.
+6. `npm publish` to publish a new version to NPM
